@@ -4,12 +4,7 @@ var http=require('http');
 var fs=require('fs');
 //App setup
 var app = express();
-/* var options={
-         key:fs.readFileSync('/var/www/html/conitor/server.key','utf8'),
-         cert:fs.readFileSync('/var/www/html/conitor/goinon_live.crt','utf8'),
-         ca:fs.readFileSync('/var/tmp/Activator/broadcast-sample-app1/inmdt.crt','utf8')
- };
-*/
+
 var wServer=http.createServer(app);
 //Static files
 app.use(express.static('public'));
