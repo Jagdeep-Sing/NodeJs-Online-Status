@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <title></title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.0/socket.io.dev.js"></script>
+
+    <link href="/styles.css" rel="stylesheet" />
+<script>
+var mDomain = document.domain;
+document.domain = mDomain;
+
+//Make connection
+var socket = io.connect('http://largecalls.com:4002');
+
+//document.domain = "largecalls.com";
+output = document.getElementById('output');
+function emitOnlineEvent(name){
+
+socket.emit('present',{
+  name:name
+});
+
+}
+
+socket.on('present', function(data){
+
+console.log(data.name);
+  document.getElementById('output').innerHTML += "<div style='padding-left:5em'>"+data.name+"</div>";
+});
+
+</script>
+  </head>
+   <body>
+
+    <div id="mario-chat">
+
+       <div id="output"><center>Online Users</center><hr></div>
+
+      </div>
+   </div>
+
+   <script>
+    </script>
+
+
+  </body>
+
+</html>
+
+
